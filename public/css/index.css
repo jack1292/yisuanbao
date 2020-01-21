@@ -1,0 +1,544 @@
+@charset "utf-8";
+html,body {
+    width: 100%;
+    height: 100%;
+    background: url("../images/indexbgc.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.bgc {
+    width: 100%;
+    height: 100%;
+    background: url("../images/indexbgc.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+.conBg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    /*overflow-y: scroll;*/
+}
+.scoll {
+    width: 101.5%;
+    height: 100%;
+    padding-bottom: 150px;
+    overflow-y: scroll;
+}
+.conBg .mainBox {
+    width: 1200px;
+    height: 100%;
+}
+.conBg .mainBox .title {
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    font-size: 14px;
+    color: #ffffff;
+}
+.conBg .mainBox .top {
+    width: 100%;
+    height: 320px;
+}
+.conBg .mainBox .top .topLeft {
+    width: 236px;
+    height: 320px;
+    text-align: center;
+    background-color: #2775b7;
+    float: left;
+}
+.conBg .mainBox .top .topLeft img {
+    width: 95px;
+    height: 95px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+.conBg .mainBox .top .topLeft p {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.conBg .mainBox .top .topRight {
+    width: 953px;
+    height: 320px;
+    text-align: center;
+    float: right;
+}
+.conBg .mainBox .top .topRight .topCaoz {
+    width: 100%;
+    height: 159px;
+    background-color: rgba(255,255,255,.2);
+    box-shadow: 0px 0px 13px 0px
+    rgba(0, 138, 255, 0.16);
+    padding: 20px 28px;
+}
+.conBg .mainBox .top .topRight .topCaoz .tianjia {
+    width: 292px;
+    height: 118px;
+    background-color: #0089ff;
+    box-shadow: 0px 0px 13px 0px
+    rgba(0, 138, 255, 0.3);
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+.conBg .mainBox .top .topRight .topCaoz .tianjia img {
+    width: 25px;
+    height: 25px;
+    margin-top: 32px;
+}
+.conBg .mainBox .top .topRight .topCaoz .tianjia p {
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+.conBg .mainBox .top .topRight .topCaoz .lr {
+    margin: 0 10px;
+}
+
+.conBg .mainBox .top .topRight .topCaoz .bg1 {
+    background-color: #1aa3f2;
+}
+
+.conBg .mainBox .top .topRight .topCaoz .bg2 {
+    background-color: #52aeff;
+}
+.conBg .mainBox .top .topRight .tishi {
+    width: 100%;
+    height: 146px;
+    background-color: rgba(255,255,255,.2);
+    box-shadow: 0px 0px 13px 0px
+    rgba(0, 138, 255, 0.3);
+    padding: 28px;
+    margin-top: 15px;
+}
+.conBg .mainBox .top .topRight .tishi p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+}
+.conBg .mainBox .top .topRight .tishi img {
+    width: 100%;
+    margin-top: 10px;
+}
+.conBg .mainBox .bottom {
+    width: 100%;
+    height: 550px;
+    margin-top: 15px;
+    margin-bottom: 100px;
+}
+.conBg .mainBox .bottom .fenleiBox {
+    width: 236px;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    background-color: rgba(255,255,255,.2);
+}
+.conBg .mainBox .bottom .fenleiBoxScroll {
+    width: 253px;
+    padding: 10px 0;
+    height: 100%;
+    overflow-y: scroll;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .fenLguanl {
+    width: 100%;
+    height: 78px;
+    font-size: 18px;
+    color: #ffffff;
+    border-bottom: 3px solid  #ccc;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .fenLguanl2 {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .fenLguanl2 img {
+    float: left;
+    margin-top: 11px;
+    margin-left: 50px;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .fenLguanl2 span {
+    float: left;
+    display: block;
+    line-height: 40px;
+    margin-left: 5px;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .fenLguanl img {
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .fenLguanl span {
+    float: left;
+    display: block;
+    line-height: 78px;
+    margin-left: 5px;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .curst {
+    cursor: pointer;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .act {
+    background: url("../images/actBgc.png") no-repeat;
+    background-size: 100% 100%;
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .XMlist {
+    width: 100%;
+
+}
+.conBg .mainBox .bottom .fenleiBox .fenleiBoxScroll .XMlist p {
+    width: 100%;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 8px 0;
+    padding-right: 10px;
+    padding-left: 75px;
+}
+
+.conBg .mainBox .bottom .listBox {
+    width: 780px;
+    height: 100%;
+    background-color: #fff;
+    float: left;
+    margin-left: 10px;
+    padding: 20px;
+}
+.conBg .mainBox .bottom .listBox .tit {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px dashed #eee;
+}
+.conBg .mainBox .bottom .listBox .tit .name {
+    width: 440px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    font-size: 16px;
+    color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.conBg .mainBox .bottom .listBox .tit .name:hover{
+    color: #0089ff;
+    /*font-weight: bold;*/
+}
+.conBg .mainBox .bottom .listBox .tit .name:hover a{
+    color: #0089ff;
+    font-weight: bold;
+}
+.conBg .mainBox .bottom .listBox .tit .name a {
+    color: #333333;
+}
+.conBg .mainBox .bottom .listBox .tit .time {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #999;
+    margin-left: 15px;
+    text-align: center;
+}
+.conBg .mainBox .bottom .listBox .tit .caoz {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #0089ff;
+    margin-left: 15px;
+    text-align: center;
+}
+.conBg .mainBox .bottom .listBox .tit .caoz a {
+    color: #0089ff;
+}
+.conBg .mainBox .bottom .listBox .tit .caoz span {
+    cursor: pointer;
+}
+.conBg .mainBox .bottom .listBox .tit .caoz .shux {
+    margin: 0 5px;
+}
+
+.conBg .mainBox .bottom .tjFl {
+    width: 165px;
+    height: 100%;
+    background-color: #fff;
+    float: left;
+    margin-left: 9px;
+    padding: 10px;
+}
+.conBg .mainBox .bottom .tjFl .tj {
+    width: 100%;
+    height: 99px;
+    padding-top: 17px;
+    background-color: #ffc600;
+    cursor: pointer;
+}
+.conBg .mainBox .bottom .tjFl .tj p {
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+
+}
+.conBg .mainBox .bottom .tjFl .cank {
+    width: 100%;
+    min-height: 300px;
+    padding-bottom: 20px;
+    border: 1px solid #eeeeee;
+    margin-top: 10px;
+
+}
+.conBg .mainBox .bottom .tjFl .cank p {
+    font-size: 14px;
+    color: #999999;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+.conBg .mainBox .bottom .tjFl .cank .p1 {
+    background-color: #77bfff !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+}
+
+#footerGray {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: url("../images/bottombgc.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.fenlTan {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    width: 500px;
+    height: 280px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 100;
+    display: none;
+}
+.fenlTan .tanTit {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+    position: relative;
+}
+.fenlTan .tanTit img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -11px;
+    right: 14px;
+}
+.fenlTan .inp {
+    width: 80%;
+    height: 30px;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 35px;
+}
+.fenlTan .inp span {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.fenlTan .inp input {
+    display: inline-block;
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    padding-left: 15px;
+}
+.fenlTan .btn {
+    width: 80%;
+    margin-top:55px;
+    margin-left: 10%;
+    text-align: center;
+}
+.fenlTan .btn button {
+    width: 60%;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    background-color: #005da0;
+}
+
+
+
+
+
+
+.notList {
+    width: 100%;
+    padding-top: 100px;
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fenlTan2 {
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 100;
+    display: none;
+}
+.fenlTan2 .tanTit {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+    position: relative;
+}
+.fenlTan2 .tanTit img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -11px;
+    right: 14px;
+}
+.fenlTan2 .inp {
+    width: 80%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 25px;
+}
+.fenlTan2 .inp span {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.fenlTan2 .inp input {
+    display: inline-block;
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    padding-left: 15px;
+}
+.fenlTan2 .inp select {
+    display: inline-block;
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    padding-left: 15px;
+}
+.fenlTan2 .inp option {
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    /*border: 1px solid #999999;*/
+    /*border-radius: 4px;*/
+}
+.fenlTan2 .btn {
+    width: 80%;
+    margin-top: 35px;
+    margin-left: 10%;
+    text-align: center;
+}
+.fenlTan2 .btn button {
+    width: 60%;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #005da0;
+}
+
+
+
+.indexbg1{
+    position: relative;
+    height: 745px;
+    background: url(../images/1.png) no-repeat center;
+}
+.indexbg2{
+    height: 819px;
+    background: url(../images/2.png) no-repeat center;
+}
+.indexbg3{
+    height: 757px;
+    background: url(../images/3.png) no-repeat center;
+}
+.indexbg4{
+    height: 757px;
+    background: url(../images/4.png) no-repeat center;
+}
+.indexbg5{
+    height: 600px;
+    background: url(../images/5.png) no-repeat center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

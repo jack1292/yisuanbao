@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页-</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--<link rel="icon" type="image/x-icon" href="favicon.ico" size="16x16 24x24 32x32"/>-->
+    <link rel="stylesheet" href="public/css/base.css">
+    <link rel="stylesheet" href="public/css/me.css">
+</head>
+<body>
+
+<div class="bgc">
+    <div class="headTab">
+        <div class="logoBox">
+            <div class="logoImg">
+                <img src="public/images/logoTwo.png" alt="">
+            </div>
+            <div class="tabBox">
+                <a href="index.html">
+                    <div class="tex">
+                        <img src="public/images/sy.png" alt=""><span>首页</span>
+                    </div>
+                </a>
+                <a href="home.html">
+                    <div class="tex1">
+                        <img src="public/images/xm1.png" alt=""><span>我的项目</span>
+                    </div>
+                </a>
+                <div class="tex2">
+                   <img src="public/images/xj1.png" alt=""><span>新建项目</span>
+                </div>
+            </div>
+            <div class="txBox">
+                <div class="name">当前用户：<span id="nikname"></span></div>
+                <div class="tx"><img src="public/images/mrTx.png" id="toux" alt=""></div>
+                <div class="tuiC" onclick="tuichu()">退出</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="conBg">
+        <div class="w1200">
+            <div class="listbox">
+                <div class="title">个人中心</div>
+                <div class="txImg">
+                    <img src="public/images/mrTx.png" id="tx" alt="">
+                </div>
+                <div class="txBtnBox">
+                    <p class="txBtn">
+                        更换头像
+                        <label for="inpImg">
+                            <input type="file" name="file" id="inpImg" title="上传图片">
+                        </label>
+                    </p>
+                </div>
+                <div class="nicheng">
+                    <p>昵称</p>
+                    <div class="inp">
+                        <input type="text" id="nic">
+                    </div>
+                </div>
+                <div class="nicheng">
+                    <p>密码</p>
+                    <div class="inp">
+                        <input type="password" value="" placeholder="********" readonly id="mim">
+                        <span class="ss" id="xiuGpass">修改密码</span>
+                    </div>
+                </div>
+                <div class="nicheng">
+                    <p>绑定手机</p>
+                    <div class="inp">
+                        <input type="text" readonly  id="tel">
+                        <span>已绑定，</span><span class="ss" id="xiuGtel">修改</span>
+                    </div>
+                </div>
+                <div class="nicheng">
+                    <p>绑定微信</p>
+                    <div class="inp">
+                        <input type="text" readonly id="weix">
+                        <span id="wxbd">已绑定，</span><span class="ss" id="wxBind" data-title="解绑">解绑</span>
+                    </div>
+                </div>
+                <div class="saveBtn">
+                    <button onclick="saveDetail()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerGray"></div>
+</div>
+<!-- 遮罩层 -->
+<div class="mask"></div>
+
+<!-- 修改手机号1 -->
+<div class="fenlTan2">
+    <div class="tanTit">
+        验证身份
+        <img src="public/images/close.png" class="close2" alt="">
+    </div>
+
+    <div class="h1">为了保障您的账号安全，请先进行身份验证</div>
+    <div class="h2" id="phone"></div>
+    <div class="tanINP">
+        <input type="text" id="code">
+        <button class="s1" id="passCode">获取验证码</button>
+        <div class="verBox" id="verBox">
+            <i class="close" onclick="verBoxhide()"></i>
+            <div id="imgVer" style="display:inline-block;"></div>
+        </div>
+    </div>
+    <div class="btn"><button onclick="yanzTel()">确定</button></div>
+</div>
+
+<!-- 修改手机号2 -->
+<div class="fenlTan">
+    <div class="tanTit">
+        输入新手机号
+        <img src="public/images/close.png" class="close" alt="">
+    </div>
+    <div class="inp">
+        <span>新手机号</span>
+        <input type="text" id="newTel">
+    </div>
+    <div class="inp">
+        <span>&nbsp;&nbsp;验证码&nbsp;&nbsp;</span>
+        <input type="text" id="newyzm">
+        <button class="s6" id="newCode">获取验证码</button>
+    </div>
+    <div class="btn">
+        <button onclick="bidTel()">绑定</button>
+    </div>
+</div>
+
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/lib/jsrsasign-all-min.js"></script>
+<script src="public/lib/layer/layer.js"></script>
+<script src="public/js/common.js"></script>
+<script src="public/lib/img_ver.js"></script>
+<script>
+
+    $(function () {
+        //设置title
+        setTitleTwo()
+
+        // 判断是否登录
+        islogin()
+
+
+
+        // 获取用户信息
+        meDetail()
+
+        if(pic != ''){
+            $("#toux").attr('src',pic);
+        }
+
+
+        if (hals.code) {
+            var obj = {
+                token:token,
+                code:hals.code
+            }
+            obj = signEdit(sign,obj)
+            $.ajax({
+                type: 'post',
+                url: urlStr + '/Home/User/bindWx',
+                data: obj,
+                dataType: 'json',
+                success: function (res) {
+                    if(res.status == 1) {
+                        window.location.href = 'login.html'
+                    }
+                    if (res.status == 200) {
+                        layer.msg(res.msg)
+                        // 获取用户信息
+                        meDetail()
+                    } else {
+                        layer.msg(res.msg)
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res.msg)
+                }
+            })
+        } else {
+            console.log("else")
+        }
+
+        // 修改手机号1
+        $("#xiuGtel").click(function () {
+            $(".mask").show();
+            $(".fenlTan2").show();
+        })
+
+        // 修改手机号1关闭
+        $(".close2").click(function () {
+            $(".mask").hide();
+            $(".fenlTan2").hide();
+            $('#verBox').hide();
+        })
+
+        // 修改手机号2关闭
+        $(".close").click(function () {
+            $(".mask").hide();
+            $(".fenlTan").hide();
+            $("#fenlName").val('');
+        })
+
+        $("#passCode").click(function () {
+            verBoxshow()
+        })
+
+        $("#newCode").click(function () {
+            btnCheck4()
+        })
+
+        // 修改密码
+        $("#xiuGpass").click(function () {
+            $("#mim").attr("readonly",false)
+            $("#mim").css("background-color",'#fff')
+        })
+    })
+
+    // 获取用户信息
+    function meDetail() {
+        var obj = {
+            token: token,
+        }
+        obj = signEdit(sign,obj)
+        $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/user/getInfo',
+            data: obj,
+            dataType: 'json',
+            success: function (res) {
+                console.log(res)
+                if(res.status == 1) {
+                    layer.msg(res.msg, {
+                        time: 1500
+                    });
+                    window.location.href = 'login.html'
+                }
+                if(res.data.pic != ''){
+                    $("#tx").attr('src',res.data.pic);
+                }
+                if(res.data.openid == 0){
+                    $("#wxbd").html('未绑定，');
+                    $('#wxBind').data('title','绑定');
+                    $('#wxBind').html('绑定');
+                }else {
+                    $("#wxbd").html('已绑定，');
+                    $('#wxBind').data('title','解绑');
+                    $('#wxBind').html('解绑');
+                }
+                $("#nic").val(res.data.nick_name);
+                $("#tel").val(res.data.phone);
+                $("#phone").html(res.data.phone);
+                $("#weix").val(res.data.wx_name);
+            },
+            error:function (res) {
+                layer.msg(res.msg, {
+                    time: 1500
+                });
+            }
+        })
+    }
+
+
+    // 上传头像
+    $("#inpImg").change(function() {
+        //获取file控件中的内容
+        var files = $("#inpImg").get(0).files[0];
+
+        var formData = new FormData();
+        formData.append("path", 1);
+        formData.append("uptype", 1);
+        formData.append("file", files);
+
+        $.ajax({
+            type:"POST",
+            url:urlStr + '/Home/Img/upload',//接口请求地址
+            contentType:false,
+            processData: false,
+            data:formData,
+            success:function(res){
+                console.log(res);
+                if(res.code == 1){
+                     $("#tx").attr('src',urlStr + '/' + res.path);
+                     $("#toux").attr('src',urlStr + '/' + res.path);
+                    _cookie._set('pic', urlStr + '/' + res.path, 36000);
+                    // pic = urlStr + '/' + res.path
+                }
+                if(res.status != 200){
+                    layer.msg(res.msg, {
+                        time: 1500
+                    });
+                }
+            }
+        });
+
+    });
+
+    $("#wxBind").click(function () {
+        var title = $(this).data("title");
+        if(title == '解绑'){
+            var obj = {
+                token:token
+            }
+            obj = signEdit(sign,obj)
+            $.ajax({
+                type: 'post',
+                url: urlStr + '/Home/User/unbindWx',
+                data: obj,
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res)
+                    if(res.status == 1) {
+                        window.location.href = 'login.html'
+                    }
+                    layer.msg(res.msg, {
+                        time: 1500
+                    });
+                    // 获取用户信息
+                    meDetail()
+                },
+                error:function (res) {
+                    layer.msg(res.msg, {
+                        time: 1500
+                    });
+                }
+            })
+        }
+        if(title == '绑定'){
+            window.location.href = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx27eb6b5fb3eb8f66&redirect_uri=http://suan.emof.cn/me.html&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect'
+        }
+    })
+
+    // 保存用户信息
+    function saveDetail() {
+        var nick_name = $("#nic").val();
+        var pass = $("#mim").val();
+        var pic = $("#tx").attr("src");
+        var obj = {
+            token:token,
+            nick_name:nick_name,
+            pass:pass,
+            pic:pic,
+        }
+        obj = signEdit(sign,obj)
+        $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/User/setInfo',
+            data: obj,
+            dataType: 'json',
+            success: function (res) {
+                console.log(res)
+                if(res.status == 1) {
+                    window.location.href = 'login.html'
+                }
+                layer.msg(res.msg, {
+                    time: 1500
+                });
+                // 获取用户信息
+                meDetail()
+            },
+            error:function (res) {
+                layer.msg(res.msg, {
+                    time: 1500
+                });
+            }
+        })
+    }
+
+    // 验证手机号
+    function yanzTel() {
+        var tel = $("#phone").html();
+        var code = $("#code").val();
+        if(code == ''){
+            layer.msg('请填写验证码')
+            return false
+        }
+        var obj = {
+            token:token,
+            phone:tel,
+            code:code,
+        }
+        obj = signEdit(sign,obj)
+        $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/User/checkSms',
+            data: obj,
+            dataType: 'json',
+            success: function (res) {
+                console.log(res)
+                if(res.status == 1) {
+                    window.location.href = 'login.html'
+                }
+                if(res.status != 200){
+                    layer.msg(res.msg, {
+                        time: 1500
+                    });
+                }
+                if(res.status == 200){
+                    $(".fenlTan2").hide();
+                    $('#verBox').hide();
+                    $(".fenlTan").show();
+                }
+            },
+            error:function (res) {
+                layer.msg(res.msg, {
+                    time: 1500
+                });
+            }
+        })
+    }
+
+    function bidTel() {
+        var newTel = $("#newTel").val();
+        var newyzm = $("#newyzm").val();
+        if(newTel == '' || newyzm == ''){
+            layer.msg('请填写完整')
+            return false
+        }
+        if(!(/^1[3456789]\d{9}$/.test(newTel))){
+            layer.msg('手机号码有误，请重填');
+            return false;
+        }
+        var obj = {
+            token:token,
+            phone:newTel,
+            code:newyzm,
+        }
+        obj = signEdit(sign,obj)
+        $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/User/setPhone',
+            data: obj,
+            dataType: 'json',
+            success: function (res) {
+                if(res.status == 1) {
+                    layer.msg(res.msg, {
+                        time: 1500
+                    });
+                    window.location.href = 'login.html'
+                }
+                layer.msg(res.msg, {
+                    time: 1500
+                });
+                if(res.status == 200){
+                    $(".fenlTan").hide();
+                    $('#verBox').hide();
+                    $(".mask").hide();
+                    $("#tel").val(newTel);
+                    $("#phone").html(newTel);
+                }
+            },
+            error:function (res) {
+                layer.msg(res.msg, {
+                    time: 1500
+                });
+            }
+        })
+    }
+
+    function verBoxhide() {
+        $('#verBox').hide();
+        $('.fenlTan2').hide();
+
+    }
+    function verBoxshow() {
+        $('#verBox').show();
+    }
+</script>
+</body>
+</html>

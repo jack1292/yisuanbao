@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--<link rel="icon" type="image/x-icon" href="favicon.ico" size="16x16 24x24 32x32"/>-->
+    <link rel="stylesheet" href="public/css/base.css">
+    <link rel="stylesheet" href="public/css/index.css">
+</head>
+<body>
+
+<div class="bgc">
+    <div class="headTab">
+
+    </div>
+
+    <div class="conBg">
+        <div class="scoll" style="">
+            <div class="clearfix" style="width: 1200px;margin: 0 auto;">
+                <div class="mainBox">
+                    <div class="title">当前位置：益算宝页面>首页</div>
+                    <div class="top clearfix">
+                        <div class="topLeft">
+                            <img src="public/images/zcLogo.png" alt="">
+                            <p>北京知诚社会组织</p>
+                            <p>众扶发展促进会</p>
+                        </div>
+                        <div class="topRight">
+                            <div class="topCaoz clearfix">
+                                <div class="tianjia tex2">
+                                    <img src="public/images/tianjia.png" alt="">
+                                    <p>添加项目</p>
+                                </div>
+                                <div class="tianjia lr bg1"  onclick="toFenl()">
+                                    <img src="public/images/xiangmufenlei.png" alt="">
+                                    <p>项目分类管理</p>
+                                </div>
+                                <div class="tianjia bg2" onclick="window.location.href = 'zshtree.html'">
+                                    <img src="public/images/xiazai.png" alt="">
+                                    <p>导入知识库</p>
+                                </div>
+                            </div>
+                            <div class="tishi">
+                                <p>点击项目可对项目进行以下操作</p>
+                                <img src="public/images/tishi.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="fenleiBox">
+                            <div class="fenleiBoxScroll">
+                                <div class="fenLguanl curst act" onclick="getFlList()">
+                                    <img src="public/images/fenlei.png" alt="">
+                                    <span>项目分类管理</span>
+                                </div>
+                                <div class="fenLguanl2">
+                                    <img src="public/images/qita.png" alt="">
+                                    <span>项目管理</span>
+                                </div>
+                                <div class="XMlist">
+                                    <p class="curst allxm" onclick="getXmList(0,1)">全部项目</p>
+                                    <!--<p class="curst" onclick="getXmList(-1,1)">默认分类</p>-->
+                                    <div class="otherXm">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listBox">
+                            <div class="tit">
+                                <div class="name" style="color: #999;font-size: 14px;">项目名称</div>
+                                <div class="time">时间</div>
+                                <div class="caoz" style="color: #999999;">管理</div>
+                            </div>
+                            <div id="lieB">
+                            </div>
+                            <div class="notList">
+                                暂无更多数据！
+                            </div>
+                            <div class="pageBox">
+                                <div id="page" class="page_div"></div>
+                            </div>
+                        </div>
+                        <div class="tjFl">
+                            <div class="tj titR">
+                                <p>添加</p>
+                                <p>项目分类</p>
+                            </div>
+                            <div class="cank">
+                                <p class="p1" style="margin-top: 0;">项目分类名称规范</p>
+                                <p>活动类项目</p>
+                                <p>服务类项目</p>
+                                <p>培训类项目</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerGray"></div>
+</div>
+<!-- 遮罩层 -->
+<div class="mask"></div>
+
+<!-- 新建分类弹框 -->
+<div class="fenlTan">
+    <div class="tanTit">
+        <span class="flTex">新建分类</span>
+        <img src="public/images/close.png" class="close" alt="">
+    </div>
+    <div class="inp"><span>分类名称</span><input type="text" id="fenlName"></div>
+    <div class="btn"><button  onclick="addFenl()">确定</button></div>
+</div>
+
+<!-- 新建项目弹框 -->
+<div class="fenlTan2">
+    <div class="tanTit">
+        <span class="xmTex">新建项目</span>
+        <img src="public/images/close.png" class="close2" alt="">
+    </div>
+    <div class="inp">
+        <span>项目分类</span>
+        <select name="" id="flSel">
+
+        </select>
+    </div>
+    <div class="inp">
+        <span>项目名称</span>
+        <input type="text" id="xmName">
+    </div>
+    <div class="inp">
+        <span>项目预算</span>
+        <input type="text" id="xmYusuan" style="width: 250px;"><span style="font-size: 16px;">（万元）</span>
+    </div>
+    <div class="btn"><button onclick="addXm()">确定</button></div>
+</div>
+
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/lib/jsrsasign-all-min.js"></script>
+<script src="public/lib/layer/layer.js"></script>
+<script src="public/lib/page.js"></script>
+<script src="public/js/common.js"></script>
+<script src="public/js/index.js"></script>
+<script>
+
+    $(function () {
+
+        //设置title
+        setTitleTwo()
+
+
+        // 判断是否登录
+        islogin()
+
+
+        // 获取项目分类
+        getFenl();
+        getFlList()
+
+
+        // 点击我的项目跳转首页显示我的全部项目
+        if(hals.all){
+            toAllxm()
+        }
+
+        if(hals.xinj){
+            xinj()
+        }
+
+        //分类列表选中效果
+        $("body").on("click",".curst",function () {
+            $(".curst").removeClass("act");
+            $(this).addClass("act");
+        })
+
+        // 弹框新建分类
+        $(".titR").click(function () {
+            $(".mask").show();
+            $(".fenlTan").show();
+            $(".flTex").html("新建分类");
+        })
+
+        // 弹框新建分类关闭
+        $(".close").click(function () {
+            $(".mask").hide();
+            $(".fenlTan").hide();
+            $("#fenlName").val('');
+        })
+
+
+        // 弹框新建项目
+        $(".tex2").click(function () {
+            $(".mask").show();
+            $(".fenlTan2").show();
+            $(".xmTex").html("新建项目");
+        })
+
+        // 弹框新建项目关闭
+        $(".close2").click(function () {
+            $(".mask").hide();
+            $(".fenlTan2").hide();
+            $("#xmName").val('');
+            $("#xmYusuan").val('');
+        })
+
+        // 获取验证码
+        $(".forget-b").click(btnCheck);
+    })
+
+
+    $("#d").attr("href","http://www.emof.cn/tiaoz.html?code=" + allToken + "&path=index.html")
+    $("#e").attr("href","http://www.emof.cn/tiaoz.html?code=" + allToken + "&path=home.html")
+
+</script>
+</body>
+</html>

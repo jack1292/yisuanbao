@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册-</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--<link rel="icon" type="image/x-icon" href="favicon.ico" size="16x16 24x24 32x32"/>-->
+    <link rel="stylesheet" href="public/css/base.css">
+    <link rel="stylesheet" href="public/css/login.css">
+</head>
+<body>
+<div class="login-header">
+    <a href="index.html" class="login-logo">
+        <img src="public/images/logo2.png" alt="益算宝">
+    </a>
+    <div class="btnBox">
+        <a href="javascript:void(0);" class="aBtn">返回益算宝首页</a>
+        <a href="javascript:void(0);" target="_blank" id="f" class="aBtn">返回益魔方首页</a>
+    </div>
+</div>
+<div class="login-content">
+    <div class="login_outSide">
+        <div class="login-box">
+            <p class="login-tab">
+                免费注册
+            </p>
+            <div class="error_ts"></div>
+            <div class="login-mode">
+                <div class="login-input">
+                    <span class="login-icon user"></span>
+                    <input type="text" placeholder="请输入手机号" id="lgFromAccount2">
+                </div>
+                <div class="login-input">
+                    <span class="login-icon yzm"></span>
+                    <input type="text" placeholder="请输入短信验证码" id="yzmCode">
+                    <span id="yzmBox" class="yzm-box">
+                         <button style="background: none;" class="forget-b">获取验证码</button>
+                    </span>
+                </div>
+                <div class="login-input">
+                    <span class="login-icon pass"></span>
+                    <input type="password" autocomplete="new-password" placeholder="请设置密码" id="password">
+                </div>
+                <div class="login-input">
+                    <span class="login-icon pass"></span>
+                    <input type="password" autocomplete="new-password" placeholder="请再次输入设置的密码" id="twoPassword">
+                </div>
+                <div class="forget">
+                    <label for="remember">
+                        <input type="checkbox" id="remember" checked>
+                        <span>我已阅读并同意 <a href="javascript:;" class="blur">《益算宝服务使用协议》</a></span>
+                    </label>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="login-btn" onclick="register()" >注册</a>
+            <div class="login-icons">
+                <div class="login-icon-t">
+                    <i class="left"></i>
+                    <span>使用其他方式登录</span>
+                    <i class="right"></i>
+                </div>
+                <div class="login-img">
+                    <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx27eb6b5fb3eb8f66&redirect_uri=http://suan.emof.cn/login.html&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect"
+                       class="login-icon-wx"></a>
+                </div>
+            </div>
+            <div class="no-hao">
+                我已有帐号，<a href="login.html" id="toLogin">我要登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footerGray"></div>
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/lib/md5.js"></script>
+<script src="public/lib/layer/layer.js"></script>
+<script src="public/js/common.js"></script>
+<script src="public/js/login.js"></script>
+<script>
+    $(function () {
+        //设置title
+        setTitle()
+
+        // 获取验证码
+        $(".forget-b").click(btnCheck1);
+
+    })
+
+</script>
+</body>
+</html>

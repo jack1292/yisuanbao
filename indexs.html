@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <meta name="keywords" content=""/>
+  <meta name="description" content=""/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <!--<link rel="icon" type="image/x-icon" href="favicon.ico" size="16x16 24x24 32x32"/>-->
+  <link rel="stylesheet" href="public/css/base.css">
+  <link rel="stylesheet" href="public/css/index.css">
+</head>
+<body>
+<div class="indexbg1">
+  <div style="width: 1200px;margin: 0 auto;padding-top: 30px;">
+    <img src="public/images/logo.png" alt="">
+    <div style="float: right;overflow: hidden">
+      <a href="login.html"
+         id="login"
+         style="display:none;float: left;width: 80px;height: 40px;background: #fff;color: #0089ff;border-radius: 20px;margin-top: 20px;text-align: center;line-height: 40px;font-size: 16px;"
+      >登录</a>
+      <a href="index.html"
+         id="mypro"
+         style="display:none;float: left;width:100px;height: 40px;background: #fff;color: #0089ff;border-radius: 20px;margin-top: 20px;text-align: center;line-height: 40px;font-size: 16px;"
+      >我的项目</a>
+      <a href="http://www.emof.cn"
+         id="toemof"
+         style="float: right;height: 40px;color: #fff;margin-top: 20px;line-height: 40px;margin-left: 20px;font-size: 16px">返回益魔方官网</a>
+    </div>
+  </div>
+</div>
+<div class="indexbg2"></div>
+<div class="indexbg3"></div>
+<div class="indexbg4"></div>
+<div class="indexbg5"></div>
+<div style="height: 60px;line-height: 60px;text-align: center;background: #333;color: #fff;">Copyright©益算宝  京ICP备15038897号-3  北京易魔方科技集团有限公司 版权所有</div>
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/js/common.js"></script>
+<script>
+  $(function () {
+    if(token){
+      $('#mypro').show()
+      $('#toemof').attr('href','http://www.emof.cn/tiaoz.html?code=' + allToken +'&path=index.html')
+    }else{
+      $('#login').show()
+    }
+  })
+</script>
+</body>
+</html>

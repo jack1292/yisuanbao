@@ -1,0 +1,374 @@
+@charset "utf-8";
+
+
+/*登录 注册 忘记密码*/
+.login-header {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.login-logo, .index-logo {
+    float: left;
+    margin: 22px;
+}
+.login-header .btnBox {
+    float: right;
+    width: 350px;
+    margin-top: 30px;
+}
+.login-header .btnBox .aBtn {
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #0089ff;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.login-back {
+    float: right;
+    line-height: 26px;
+    padding-left: 30px;
+    margin: 35px 15px;
+    font-size: 16px;
+    background: url(../images/home.png) no-repeat 5px 2px;
+    background-size: 20px;
+}
+
+.login-content {
+    height: 750px;
+    background: url(../images/login-banner.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.login_outSide {
+    width: 1200px;
+    height: 750px;
+    margin: 0 auto;
+}
+
+.login-box {
+    width: 400px;
+    padding: 10px 30px;
+    background-color: #FFF;
+    float: right;
+    margin: 108px 20px 0 0;
+    border-radius: 5px;
+}
+
+.error_ts {
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    color: #e90000;
+    background: url(../images/tan_13.png) no-repeat left;
+    padding-left: 17px;
+    display: none;
+}
+
+.mode2 {
+    display: none;
+}
+
+.login-tab {
+    line-height: 30px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-tab a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b1c3c5;
+}
+
+.login-tab a:hover {
+    color: #236fa5;
+}
+
+.login-tab a.active {
+    color: #236fa5;
+}
+
+.login-tab span {
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    margin: 0 33px;
+    background: #b1c3c5
+}
+
+.login-input {
+    height: 52px;
+    margin-bottom: 10px;
+    padding: 10px 110px 10px 40px;
+    background-color: #f8fafa;
+    border-radius: 8px;
+    border: solid 1px #dde6e6;
+    position: relative;
+}
+
+.login-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 52px;
+}
+
+.login-icon.user {
+    background: url(../images/user.png) no-repeat center center;
+    background-size: 26px;
+}
+
+.login-icon.pass {
+    background: url(../images/password.png) no-repeat center center;
+    background-size: 26px;
+}
+
+.login-icon.yzm {
+    background: url(../images/yzm.png) no-repeat center center;
+    background-size: 26px;
+}
+
+.login-mode {
+    position: relative;
+}
+
+.login-input input {
+    display: block;
+    width: 100%;
+    height: 32px;
+    background: #f8fafa;
+}
+
+.forget-a {
+    position: absolute;
+    right: 8px;
+    top: 20px;
+    font-size: 12px;
+    color: #444;
+}
+
+.mode1 .forget {
+    margin: 10px 0 0;
+    text-align: left;
+    height: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.mode1 .forget input {
+    loat: left;
+    argin: 2px 4px 0 0;
+}
+
+.forget a {
+    color: #236fa5;
+}
+
+.yzm-box {
+    position: absolute;
+    right: 0px;
+    top: 11px;
+    cursor: pointer;
+    display: block;
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-left: 1px solid #b1c3c5;
+    color: #236fa5;
+}
+
+.forget-b {
+    cursor: pointer;
+    display: block;
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.login-btn {
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    background-color: #236fa5;
+    text-align: center;
+    font-size: 16px;
+    color: #FFF;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.login-icons {
+    height: 85px;
+    margin-top: 20px;
+}
+
+.login-icons .login-icon-t {
+    height: 36px;
+    text-align: center;
+}
+
+.login-icons .login-icon-t .left {
+    width: 104px;
+    border-bottom: 1px solid #ddd;
+    float: left;
+    margin-top: 10px;
+}
+
+.login-icons .login-icon-t .right {
+    width: 104px;
+    border-bottom: 1px solid #ddd;
+    float: right;
+    margin-top: 10px;
+}
+
+.login-icons .login-icon-t span {
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+}
+
+.login-img {
+    width: 45px;
+    margin: 0 auto;
+}
+
+a.login-icon-wx {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: url(../images/code_icon.png) no-repeat;
+    background-position: -1px -1px;
+}
+
+a.login-icon-wx:hover {
+    background-position: -1px -51px;
+}
+
+a.login-icon-qq {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin-left: 30px;
+    background: url(../images/code_icon.png) no-repeat;
+    background-position: -1px -101px;
+}
+
+a.login-icon-qq:hover {
+    background-position: -1px -151px;
+}
+
+.no-hao {
+    height: 58px;
+    line-height: 58px;
+    color: #444;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.no-hao a {
+    color: #236fa5;
+}
+
+.verBox {
+    display: none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: -50px;
+    top: -100px;
+    transition: all 0.8s;
+    padding: 30px 0;
+    background: #fff;
+    border-radius: 10px;
+    z-index: 11;
+}
+
+.slider-btn {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    left: 0;
+    top: -7px;
+    z-index: 12;
+    cursor: pointer;
+    background-image: url(../images/sprite.3.2.0.png);
+    background-position: 0 -84px;
+    transition: inherit;
+}
+
+.ver-tips {
+    position: absolute;
+    left: 0;
+    bottom: -22px;
+    background: rgba(255, 255, 255, .9);
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    padding: 0 8px;
+    transition: all .4s;
+}
+
+.slider-tips {
+    bottom: 0;
+}
+
+.ver-tips i {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: top;
+    background-image: url(../images/sprite.3.2.0.png);
+    background-position: -4px -1229px;
+}
+
+.ver-tips span {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 22px;
+    color: #455;
+}
+
+.active-tips {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.re-btn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 28px;
+    padding: 0 16px;
+}
+
+.re-btn a {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 7px 0;
+    background-image: url(../images/sprite.3.2.0.png);
+    background-position: 0 -1179px;
+    cursor: pointer;
+}
+
+.re-btn a:hover {
+    background-position: 0 -1193px
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页-</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--<link rel="icon" type="image/x-icon" href="favicon.ico" size="16x16 24x24 32x32"/>-->
+    <link rel="stylesheet" href="public/css/base.css">
+    <link rel="stylesheet" href="public/css/home.css">
+</head>
+<body>
+
+<div class="bgc">
+    <div class="headTab">
+        <div class="logoBox">
+            <div class="logoImg">
+                <img src="public/images/logoTwo.png" alt="">
+            </div>
+            <div class="tabBox">
+                <a href="index.html">
+                    <div class="tex">
+                        <img src="public/images/sy1.png" alt=""><span>首页</span>
+                    </div>
+                </a>
+                <a href="home.html">
+                    <div class="tex1">
+                        <img src="public/images/xm.png" alt=""><span>我的项目</span>
+                    </div>
+                </a>
+                <div class="tex2">
+                   <img src="public/images/xj1.png" alt=""><span>新建项目</span>
+                </div>
+            </div>
+            <div class="txBox">
+                <div class="name">当前用户：<span id="nikname"></span></div>
+                <div class="tx"><a href="me.html"><img src="public/images/mrTx.png" id="toux" alt=""></a></div>
+                <div class="tuiC" onclick="tuichu()">退出</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="conBg">
+        <div class="w1200" style="height: 100%;">
+            <div class="pfix">
+                <div class="leftCon">
+                    <div class="tit">
+                        <div class="titL">项目分类</div>
+                        <div class="titR">+新建</div>
+                    </div>
+                    <div class="navList">
+
+                    </div>
+                </div>
+                <div class="rightCon">
+                    <div class="listConbox">
+                       <div class="listtitle">当前位置：首页-我的项目-<span id="flName">默认分类</span></div>
+                        <div class="hasList">
+                            <div class="listbox">
+
+                            </div>
+
+                        </div>
+                        <div class="notList">
+                            暂无更多数据！
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerGray"></div>
+</div>
+<!-- 遮罩层 -->
+<div class="mask"></div>
+
+
+
+<!-- 新建项目弹框 -->
+<div class="fenlTan2">
+    <div class="tanTit">
+        新建项目
+        <img src="public/images/close.png" class="close2" alt="">
+    </div>
+    <div class="inp">
+        <span>项目分类</span>
+        <select name="" id="flSel">
+
+        </select>
+    </div>
+    <div class="inp">
+        <span>项目名称</span>
+        <input type="text" id="xmName">
+    </div>
+    <div class="inp">
+        <span>项目预算</span>
+        <input type="text" id="xmYusuan">
+    </div>
+    <div class="btn"><button onclick="addXm()">确定</button></div>
+</div>
+
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/lib/jsrsasign-all-min.js"></script>
+<script src="public/lib/layer/layer.js"></script>
+<script src="public/lib/page.js"></script>
+<script src="public/js/common.js"></script>
+<script>
+
+    $(function () {
+
+        //设置title
+        setTitleTwo()
+
+        // 判断是否登录
+        islogin()
+
+        // 获取分类列表
+        getFenl()
+
+        // 分类列表选中效果
+        $("body").on("click",".navP",function () {
+            $(".navP").removeClass("act");
+            $(this).addClass("act");
+            $('#flName').text($(this).data('title'));
+        })
+
+
+
+        // 弹框新建项目
+        $(".tex2").click(function () {
+            $(".mask").show();
+            $(".fenlTan2").show();
+        })
+
+        // 弹框新建项目关闭
+        $(".close2").click(function () {
+            $(".mask").hide();
+            $(".fenlTan2").hide();
+        })
+
+    })
+
+
+    $("#d").attr("href","http://www.emof.cn/tiaoz.html?code=" + allToken + "&path=index.html")
+    $("#e").attr("href","http://www.emof.cn/tiaoz.html?code=" + allToken + "&path=home.html")
+
+
+</script>
+</body>
+</html>

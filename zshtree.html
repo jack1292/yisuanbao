@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页-</title>
+  <meta name="keywords" content=""/>
+  <meta name="description" content=""/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <!--<link rel="icon" type="image/x-icon" href="favicon.ico" size="16x16 24x24 32x32"/>-->
+  <link rel="stylesheet" href="public/css/base.css">
+  <link rel="stylesheet" href="public/css/index.css">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <style>
+    .bgc {
+      width: 100%;
+      background: url(public/images/indexbgc.jpg) no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .bgcBox {
+      width: 1200px;
+      margin: 0 auto;
+      min-height: 840px;
+      padding: 30px;
+      background-color: #fff;
+    }
+    .bgcBox .flexBox {
+      width: 100%;
+      display: flex;
+      margin-top: 50px;
+      justify-content: center;
+    }
+    .bgcBox .flexBox .meBox {
+      width: 380px;
+      min-height: 560px;
+      background-color: #ffffff;
+      box-shadow: 0px 1px 13px 0px
+      rgba(183, 183, 183, 0.3);
+      border-radius: 6px;
+    }
+    .bgcBox .flexBox .meBox .title {
+      width: 100%;
+      height: 44px;
+      background-color: #ffca28;
+      font-size: 16px;
+      color: #333333;
+      text-align: center;
+      line-height: 44px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    .bgcBox .flexBox .meBox .listBox {
+      width: 100%;
+      height: 516px;
+      overflow: hidden;
+      padding: 20px 15px;
+    }
+    .bgcBox .flexBox .meBox .listBox .scrollBox {
+      width: 398px;
+      padding-right: 20px;
+      height: 516px;
+      overflow-y: scroll;
+    }
+    .bgcBox .flexBox .jiantouBox {
+      width: 150px;
+      padding-top: 270px;
+      text-align: center;
+    }
+    .bgcBox .flexBox .jiantouBox img {
+      width: 50px;
+    }
+    .bgcBox .flexBox .zskBox {
+      width: 380px;
+      min-height: 560px;
+      background-color: #ffffff;
+      box-shadow: 0px 1px 13px 0px
+      rgba(183, 183, 183, 0.3);
+      border-radius: 6px;
+    }
+    .bgcBox .flexBox .zskBox .title {
+      width: 100%;
+      height: 44px;
+      background-color: #0089ff;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      line-height: 44px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    .bgcBox .flexBox .zskBox .listBox {
+      width: 100%;
+      height: 516px;
+      overflow: hidden;
+    }
+    .bgcBox .flexBox .zskBox .listBox  .scrollBox {
+      width: 398px;
+      padding-right: 20px;
+      height: 460px;
+      padding: 20px 15px;
+      overflow-y: scroll;
+    }
+    .bgcBox .flexBox .zskBox .listBox .btn {
+      width: 262px;
+      height: 40px;
+      background-color: #ffca28;
+      border-radius: 4px;
+      margin-left: 60px;
+      margin-top: 4px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 14px;
+      color: #333;
+      cursor: pointer;
+    }
+    .btnBox {
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .btnBox  .daoR {
+      width: 138px;
+      height: 52px;
+      background-color: #0089ff;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 52px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .btnBox .fanhui {
+      width: 138px;
+      height: 52px;
+      background-color: #b3bfca;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 52px;
+      color: #ffffff;
+      margin-left: 30px;
+      cursor: pointer;
+    }
+    .nav {
+      width: 1200px;
+      margin: auto;
+      height: 46px;
+      line-height: 46px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bgc">
+  <div class="headTab"></div>
+
+  <div class="nav">当前位置：益算宝页面>首页 > 导入知识库</div>
+  <div class="bgcBox" id="app">
+    <div class="flexBox">
+      <div class="meBox">
+        <div class="title">选择预导入的文章</div>
+        <div class="listBox">
+          <div class="scrollBox">
+            <el-tree
+              :data="mewz"
+              :props="propst"
+              ref="treeMe"
+              node-key="id"
+              show-checkbox
+              :check-strictly="true"
+            >
+            </el-tree>
+          </div>
+        </div>
+      </div>
+      <div class="jiantouBox">
+        <img src="public/images/shuangjiantou.png" alt="">
+      </div>
+      <div class="zskBox">
+        <div class="title">选择要储存的文件夹</div>
+        <div class="listBox">
+          <div class="scrollBox">
+            <el-tree
+              :data="zsgl"
+              :props="props"
+              ref="treeZsk"
+              node-key="id"
+              show-checkbox
+              :check-strictly="true"
+              @check-change="handleCheckChange">
+            </el-tree>
+          </div>
+          <div class="btn" @click="openXinj">
+            新建文件夹
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btnBox">
+      <div class="daoR" @click="daoR">导入</div>
+      <a href="index.html" class="fanhui">返回</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div id="footerGray"></div>
+</div>
+
+
+
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/lib/jsrsasign-all-min.js"></script>
+<script src="public/lib/layer/layer.js"></script>
+<script src="public/js/common.js"></script>
+<!---->
+<script>
+
+  $(function () {
+
+    //设置title
+    setTitleTwo()
+
+    // 判断是否登录
+    islogin()
+
+
+
+
+    new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          drNum: 1,
+          props: {    // 知识库树渲染字段
+            label: 'label',
+            children: 'folder_info'
+          },
+          propst: {    // 知识库树渲染字段
+            label: 'name',
+            children: 'folder_info'
+          },
+          zsgl: [],  //  知识库树
+          mewz:[], // 我的书
+          zskid: '', // 知识库文章id
+          input: '' //  文件夹名字
+        }
+      },
+      created() {
+        this.getZsk()
+        this.getMe()
+      },
+      methods: {
+        //  导入知识库确定
+        daoR(){
+          var Zskary = this.$refs.treeZsk.getCheckedNodes()
+          var Meary = this.$refs.treeMe.getCheckedNodes()
+          var meStrId = []
+          if(!Meary[0]){
+            layer.msg('请选择项目', {
+              time: 1500
+            });
+            return false
+          }else{
+            Meary.map(item => {
+             meStrId.push(item.id)
+            })
+          }
+          if(meStrId.length < 1){
+            layer.msg('请选择项目', {
+              time: 1500
+            });
+            return false
+          }
+          if(!Zskary[0]){
+            layer.msg('请选择你所要导入的文件夹', {
+              time: 1500
+            });
+            return false
+          }
+          if(Zskary[0].kid){
+            var data = {
+              token: token,
+              id:meStrId.join(","),
+              kid:Zskary[0].kid,
+              folderid:Zskary[0].id,
+            }
+          }else {
+            var data = {
+              token: token,
+              id:meStrId.join(","),
+              kid:Zskary[0].id,
+              folderid:0,
+            }
+          }
+
+          data = signEdit(sign, data);
+          var that = this
+          $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/Project/exportToEmof',
+            data: data,
+            dataType: 'json',
+            success: function (res) {
+              layer.msg(res.msg, {
+                time: 1500
+              });
+              that.resetChecked()
+            }
+          })
+        },
+        // 知识库树单选操作1
+        handleCheckChange(data) {
+          let arr = this.$refs.treeZsk.getCheckedNodes()
+          if (arr.length > 1) {
+            this.resetChecked()
+            this.$refs.treeZsk.setChecked(data.id, true);
+          }
+        },
+        // 知识库树单选操作2
+        resetChecked() {
+          this.$refs.treeZsk.setCheckedKeys([]);
+          this.$refs.treeMe.setCheckedKeys([]);
+        },
+        // 打开新建文件弹框
+        openXinj() {
+
+          var ary = this.$refs.treeZsk.getCheckedNodes()
+          if (!ary[0]) {
+            layer.msg('请选择你所要创建文件夹的位置', {
+              time: 1500
+            });
+            return false
+          }
+
+          this.$prompt('<h3>新建文件夹</h3>', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            confirmButtonClass: 'cjBtn',
+            cancelButtonClass: 'qxBtn',
+            center: true,
+            dangerouslyUseHTMLString: true,
+            roundButton: true,
+            inputPattern: /\S/,
+            inputErrorMessage: '名字不能为空'
+          }).then(({value}) => {
+            var data = {}
+            if(ary[0].kid){
+              data = {
+                mid: allToken,
+                title:value,
+                parentid:ary[0].id,
+                kid:ary[0].kid,
+                username:nick_name
+              }
+            }else {
+              data = {
+                mid: allToken,
+                title:value,
+                parentid:0,
+                kid:ary[0].id,
+                username:nick_name
+              }
+            }
+            data = signEdit(sign, data);
+            var that = this
+            $.ajax({
+              type: 'post',
+              url: urlStr + '/Home/Api/AddFolder',
+              data: data,
+              dataType: 'json',
+              success: function (res) {
+                console.log(res)
+                layer.msg(res.msg, {
+                  time: 1500
+                });
+                that.innerDrBox = false
+                that.getZsk()
+              }
+            })
+
+          })
+        },
+        // 获取知识库树
+        getZsk(){
+          var that = this
+          $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/Api/GetAllFolder',
+            data: {
+              mid: allToken
+            },
+            dataType: 'json',
+            success: function (res) {
+              that.zsgl = res.data
+
+            }
+          })
+        },
+        // 获取我的树
+        getMe(){
+          var that = this
+          var obj = {
+            token: token,
+            page:  1,
+            limit: 10000,
+            cid: 0
+          }
+          obj = signEdit(sign, obj)
+          $.ajax({
+            type: 'post',
+            url: urlStr + '/Home/Project/getList',
+            data: obj,
+            dataType: 'json',
+            success: function (res) {
+              console.log(res)
+              that.mewz = res.data.list
+            },
+            error: function (res) {
+              layer.msg(res.msg, {
+                time: 1500
+              });
+            }
+          })
+
+        },
+      }
+    })
+      setTimeout(function () {
+
+      },3000)
+
+
+  })
+
+</script>
+</body>
+</html>

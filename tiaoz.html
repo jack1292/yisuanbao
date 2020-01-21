@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="test1"></div>
+</body>
+<script src="public/lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="public/js/common.js"></script>
+<script>
+
+  var code = GetRequest().code;
+
+  if(code){
+
+    $.ajax({
+      type: 'post',
+      url: urlStr + '/Home/User/emof_login',
+      data: {
+        emofUserTokenSafer: code
+      },
+      dataType: 'json',
+      success: function (res) {
+        if (res.status == 1) {
+          layer.msg(res.msg, {
+            time: 1500
+          });
+          window.location.href = 'login.html'
+        }
+        if (res.status != 200) {
+          layer.msg(res.msg)
+          return false
+        }
+        _cookie._set('token', res.data.token, 36000);
+        _cookie._set('nick_name', res.data.nick_name, 36000);
+        _cookie._set('pic', res.data.pic, 36000);
+        _cookie._set('sign', res.data.privatekey, 36000);
+        _cookie._set('allToken', res.data.emofUserTokenSafer, 36000);
+        window.location.href = 'index.html';
+      },
+      error: function (res) {
+        layer.msg(res.msg)
+      }
+    })
+
+
+  }else {
+    window.location.href = 'login.html'
+  }
+
+</script>
+</html>
