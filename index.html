@@ -25,9 +25,8 @@
                     <div class="title">当前位置：益算宝页面>首页</div>
                     <div class="top clearfix">
                         <div class="topLeft">
-                            <img src="public/images/zcLogo.png" alt="">
-                            <p>北京知诚社会组织</p>
-                            <p>众扶发展促进会</p>
+                            <img src="" alt="" class="jglogo">
+                            <p class="jgname" style="width: 80%;text-align: center;"></p>
                         </div>
                         <div class="topRight">
                             <div class="topCaoz clearfix">
@@ -158,7 +157,9 @@
 
         // 判断是否登录
         islogin()
-
+        
+        $(".jgname").html(morgname)
+        $(".jglogo").attr("src",morglogo)
 
         // 获取项目分类
         getFenl();
